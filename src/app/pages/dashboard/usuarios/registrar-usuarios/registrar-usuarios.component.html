@@ -1,0 +1,85 @@
+<div class="container-form">
+  <h1>CREAR USUARIO</h1>
+  <div style="text-align: center">
+    <a class="btn" href="listado-usuario">Listado de Usuarios</a>
+  </div>
+  <div class="align-center">
+    <form class="form" [formGroup]="form">
+      <label class="text-gray" for="name">Nombre</label><br />
+      <input type="text" name="name" required formControlName="nombre" /><br />
+
+      <label class="text-gray" for="apellido">Apellido</label><br />
+      <input
+        type="text"
+        name="apellido"
+        required
+        formControlName="apellido"
+      /><br />
+
+      <label class="text-gray" for="email">Email</label><br />
+      <input type="email" name="email" formControlName="email" /><br />
+
+      <div class="d-flex justify-content-between form-psw">
+        <div class="inputs">
+          <label class="text-gray" for="psw">Contraseña</label><br />
+          <input
+            type="password"
+            name="psw"
+            required
+            formControlName="password"
+          /><br />
+        </div>
+        <div class="inputs">
+          <label class="text-gray" for="c-psw">Confirmar Contraseña</label
+          ><br />
+          <input
+            type="password"
+            name="c-psw"
+            required
+            formControlName="secondPassword"
+          /><br />
+        </div>
+      </div>
+
+      <label class="text-gray" for="tipoDocumento">Tipo de Documento</label
+      ><br />
+      <select
+        name="tipoDocumento"
+        id="tipoDocumento-select"
+        required
+        formControlName="tipoDocumento"
+      >
+        <option value="0">--Seleccione un tipo de documento--</option>
+        <option *ngFor="let doc of lstTiposDocumento" value="{{ doc.id }}">
+          {{ doc.nombre }}
+        </option>
+      </select>
+
+      <label class="text-gray" for="documento">Número de Identificación</label
+      ><br />
+      <input
+        type="text"
+        name="documento"
+        required
+        formControlName="documento"
+      /><br />
+
+      <label class="text-gray" for="rol">Rol</label><br />
+      <select name="Rols" id="rol-select" required formControlName="rol">
+        <option value="0">--Seleccione un rol--</option>
+        <option *ngFor="let rol of lstRoles" value="{{ rol.id }}">
+          {{ rol.nombre }}
+        </option>
+      </select>
+
+      <button
+        type="submit"
+        class="btn btn-form"
+        (click)="clickEnviar()"
+        [disabled]="!form.valid"
+      >
+        Crear Usuario
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="container-table">
+  <div class="title-button d-flex justify-content-center">
+    <h1 class="m-0">TABLERO DE TAREAS</h1>
+    <button onclick="location.href='registrar-tarea';" class="buttonTarea">
+      <img src="../../../../../assets/imgs/Tarea.png" alt="Agendar Tarea" />
+    </button>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" *ngFor="let estadoTarea of tablero" class="tr-table">
+          <div class="header-box">
+            <p>{{ estadoTarea.estado }}</p>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td *ngFor="let estadoTarea of tablero" class="tr-table">
+          <div
+            *ngFor="let tarea of estadoTarea.tareas"
+            class="tarea-container mb-2"
+          >
+            <span
+              *ngIf="estadoTarea.estado == 'Terminado'"
+              (click)="eliminar(tarea.tarea.id)"
+              class="closeButton2"
+            ></span>
+            <div class="tarea-header d-flex justify-content-between p-1">
+              <p class="m-0 align-self-center">{{ tarea.tarea.nombre }}</p>
+              <button class="button-list">
+                <img
+                  [routerLink]="['/editar-tarea', tarea.tarea.id]"
+                  class="img-list"
+                  src="../../../../../assets/imgs/lapiz.png"
+                  alt="modificar"
+                />
+                <img
+                  *ngIf="tarea.color != 2"
+                  class="img-estado"
+                  src="../../../../../assets/imgs/circulo-{{ tarea.color }}.png"
+                />
+              </button>
+            </div>
+            <div class="tarea-body">
+              <p>{{ tarea.tarea.descripcion }}</p>
+              <!-- <a href="http://">{{ tarea.tarea.link }}</a> -->
+              <a href="{{ tarea.tarea.link }}" target="_blank">Link Acceso</a>
+              <div class="p-2">
+                <img
+                  *ngFor="let responsable of tarea.responsables"
+                  class="w-18 mr-2 mt-2 rounded-circle"
+                  src="https://ui-avatars.com/api/?name={{
+                    responsable.usuario.nombre
+                  }}  {{ responsable.usuario.apellido }}"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,160 @@
+.navbar{
+    border-bottom: 0.4rem solid #FE8910;
+}
+
+.nav-bar {
+    display: flex;
+    max-width: 80%;
+    margin: auto;
+    padding: 1%;
+}
+
+.nav-link-space {
+    margin: 0% 2% 0% 5%;
+}
+
+.nav-link-space-admin {
+    width: max-content;
+    margin: 0% 1rem 0% 1rem;
+}
+
+.form-inline {
+    flex-flow: initial;
+    height: 1rem;
+}
+
+.fa-user-circle-o {
+    filter: brightness(0) saturate(100%) invert(49%) sepia(98%) saturate(731%) hue-rotate(352deg) brightness(103%) contrast(99%);
+    padding: 5%;
+    font-size: 2rem;
+}
+
+.fa-user-circle-o:hover {
+    cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(54%) sepia(9%) saturate(88%) hue-rotate(182deg) brightness(98%) contrast(86%);
+}
+
+.pad-left {
+    padding-left: revert;
+    font-weight: bold;
+}
+
+.sesion-ui{
+    color: #1a1a1a;
+    font-weight: bold;
+    text-align: right;
+}
+
+.sesion-ui p{
+    margin: 0;
+}
+
+.sesion-rol{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.sesionrol-dato{
+    font-weight: 100;
+    margin-right: 5px!important;
+}
+
+.button-sesion{
+    width: 1.5rem;
+    margin-right: 20%;
+    filter: brightness(0) saturate(100%) invert(49%) sepia(98%) saturate(731%) hue-rotate(352deg) brightness(103%) contrast(99%);
+}
+.button-sesion:hover {
+    cursor: pointer;
+    filter: invert(71%) sepia(80%) saturate(5123%) hue-rotate(8deg) brightness(103%) contrast(101%);
+}
+
+@media(max-width: 1302px){
+    .sesion-ui p {
+        font-size: 90%;
+    }
+    .sesionrol-dato{
+        font-size: 80%;
+    }
+    .button-sesion{
+        width: 0.8rem;
+    }
+
+    .col-lg-12 {
+        flex: 0 0 auto;
+        width: 200px;
+    }
+}
+
+@media(max-width: 1201px){
+    .navbar{
+        padding: 2%;
+    }
+    .nav-bar{
+        display: contents;
+        flex-direction: column;
+        
+    }
+    .navbar-nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .form-inline {
+        justify-content: space-between;
+    }
+    .pad-left{
+        padding-left: 0;
+    }
+    .btn-iniciar{
+        padding: 3%;
+    }
+    .sesion-ui{
+        padding-top: 1rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .col-lg-12[_ngcontent-eha-c106] {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+    .button-sesion{
+        width: 1rem;
+    }
+}
+
+@media(max-width: 767px){
+    .navbar-nav{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .sesion-ui{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .sesion-ui p{
+        margin: 0;
+        text-align: left;
+    }
+    .sesion-rol{
+        margin: 0 2%;
+        align-items: center;
+        flex-direction: row-reverse;
+        width: 20%;
+    }
+    .sesion-rol p {
+        margin-right: 8%;
+    }
+    .button-sesion{
+        width: 1rem;
+    }
+}
+

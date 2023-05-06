@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { ListarProcesoComponent } from './reporte-proceso.component';
+
+describe('ListarProcesoComponent', () => {
+  let component: ListarProcesoComponent;
+  let fixture: ComponentFixture<ListarProcesoComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ ListarProcesoComponent ]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(ListarProcesoComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

@@ -1,0 +1,140 @@
+<div class="container-form">
+  <div class="d-flex justify-content-around">
+    <h1>REGISTRAR PROCESO</h1>
+    <button class="btn w-50" onclick="location.href='listado-proceso';">
+      Listado de Procesos
+    </button>
+  </div>
+
+  <form class="form" [formGroup]="form">
+    <div class="align-center row justify-content-center">
+      <div class="col-8">
+        <label class="text-gray" for="name">Numero Proceso</label>
+        <input
+          type="text"
+          name="name"
+          required
+          formControlName="numeroProceso"
+        />
+      </div>
+
+      <div class="col-4">
+        <label class="text-gray" for="cedula">Nombre Ciudad</label>
+        <input type="text" name="cedula" required formControlName="ciudad" />
+      </div>
+
+      <div class="col-8">
+        <label class="text-gray" for="name">Corporacion/Especialidad</label>
+        <input type="text" name="name" required formControlName="corporacion" />
+      </div>
+
+      <div class="col-4">
+        <label class="text-gray" for="estado">Estado</label>
+        <select name="estado" id="estado-select" formControlName="estado">
+          <option value="0">-- Seleccione un Estado --</option>
+          <option *ngFor="let est of lstEstado" value="{{ est.id }}">
+            {{ est.nombre }}
+          </option>
+        </select>
+      </div>
+      <div class="col-lg-8 col-sm-12">
+        <label class="text-gray" for="name">Tribunal</label>
+        <input type="text" name="name" required formControlName="tribunal" />
+      </div>
+      <div class="col-lg-4 col-sm-12">
+        <label class="text-gray" for="cliente">Cliente</label>
+        <select name="cliente" id="cliente-select" formControlName="cliente">
+          <option value="0">-- Seleccione un Cliente --</option>
+          <option *ngFor="let cli of lstCliente" value="{{ cli.id }}">
+            {{ cli.nombre }}
+          </option>
+        </select>
+      </div>
+
+      <h2 class="align-center m-1">DATOS DEL PROCESO</h2>
+
+      <h5 class="m-2">Informacion de Radicacion del Proceso</h5>
+      <div class="col-6 mt-3">
+        <label class="text-gray" for="despacho">Despacho</label>
+        <input
+          type="text"
+          name="despacho"
+          required
+          formControlName="despacho"
+        />
+      </div>
+
+      <div class="col-6 mt-3">
+        <label class="text-gray" for="ponente">Ponente</label>
+        <input type="text" name="ponente" required formControlName="ponente" />
+      </div>
+
+      <h5 class="m-2">Clasificacion del Proceso</h5>
+      <div class="col-6 mt-3">
+        <label class="text-gray" for="AccionJudicial"
+          >Tipo de Accion Judicial</label
+        >
+        <select
+          name="AccionJudicial"
+          id="AccionJudicial-select"
+          formControlName="tipoProceso"
+        >
+          <option value="0">-- Seleccione un Tipo de Accion Judicial --</option>
+          <option *ngFor="let tip of lstTipoProceso" value="{{ tip.id }}">
+            {{ tip.nombre }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-6 mt-3">
+        <label class="text-gray" for="Cuantia">Cuantia</label>
+        <input type="text" name="Cuantia" required formControlName="cuantia" />
+      </div>
+
+      <h5 class="m-2">Sujetos Procesales</h5>
+      <div class="col-6 mt-3">
+        <label class="text-gray" for="Demandante">Demandante</label>
+        <input
+          type="text"
+          name="Demandante"
+          required
+          formControlName="demandante"
+        />
+      </div>
+
+      <div class="col-6 mt-3">
+        <label class="text-gray" for="Cuantia">Cedula o NIT</label>
+        <input
+          type="text"
+          name="Cuantia"
+          required
+          formControlName="docDemandante"
+        />
+      </div>
+
+      <div class="col-6 mt-3">
+        <label class="text-gray" for="Demandado">Demandado</label>
+        <input
+          type="text"
+          name="Demandado"
+          required
+          formControlName="demandado"
+        />
+      </div>
+
+      <div class="col-6 mt-3">
+        <label class="text-gray" for="Cuantia">Cedula o NIT</label>
+        <input
+          type="text"
+          name="Cuantia"
+          required
+          formControlName="docDemandado"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-form" (click)="clickEnviar()">
+        Guardar Registro
+      </button>
+    </div>
+  </form>
+</div>

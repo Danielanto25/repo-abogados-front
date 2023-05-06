@@ -1,0 +1,72 @@
+*{
+    font-family: "Arial Narrow", Arial, sans-serif;
+}
+
+h1{
+    text-align: center;
+}
+
+.align-center{
+    display: flex;
+    justify-content: center;
+}
+
+.text-gray {
+    color: #868789;
+}
+
+.container-form{
+    padding: 2rem 0;
+    width: 70%;
+    margin: auto;
+}
+
+.btn{
+    background-color: #FE8910;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 0;
+    width: 65%;
+    margin: 0.6rem 0 1.5rem 0;
+    justify-content: center;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+}
+
+.btn:hover{
+    color: #f7f7f7;
+    background-color: #868789;
+}
+
+.btn-form{
+    width: 100%;
+    padding: 1rem;
+    
+}
+
+.form{
+   width: 65%;
+   margin: 0 auto;
+}
+
+.form input, select{
+    color: #1a1a1a;
+    width: 100%;
+    background-color: rgba(102, 102, 102, 0.25);
+    border: none;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+}
+
+.form select{
+    color: #868789;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.form .inputs{
+    width: 48%;
+}

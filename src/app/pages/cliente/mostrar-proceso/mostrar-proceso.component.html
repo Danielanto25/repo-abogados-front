@@ -1,0 +1,195 @@
+<div class="container-form">
+  <div class="title-button">
+    <h1>CONSULTA PROCESO</h1>
+    <button class="btn" onclick="location.href='listado-proceso';">
+      Listado de Procesos
+    </button>
+  </div>
+
+  <form class="form" [formGroup]="form">
+    <div class="align-center row justify-content-center">
+      <div class="col-lg-8 col-sm-12">
+        <label class="text-gray" for="name">Numero Proceso</label>
+        <input
+          type="text"
+          name="name"
+          required
+          formControlName="numeroProceso"
+          disabled
+        />
+      </div>
+
+      <div class="col-lg-4 col-sm-12">
+        <label class="text-gray" for="cedula">Nombre Ciudad</label>
+        <input
+          type="text"
+          name="cedula"
+          required
+          formControlName="ciudad"
+          disabled
+        />
+      </div>
+
+      <div class="col-12">
+        <label class="text-gray" for="name">Corporacion/Especialidad</label>
+        <input
+          type="text"
+          name="name"
+          required
+          formControlName="corporacion"
+          disabled
+        />
+      </div>
+
+      <h2 class="align-center m-1">DATOS DEL PROCESO</h2>
+
+      <h5 class="m-2">Informacion de Radicacion del Proceso</h5>
+      <div class="col-lg-6 col-sm-12 mt-3">
+        <label class="text-gray" for="despacho">Despacho</label>
+        <input
+          type="text"
+          name="despacho"
+          required
+          formControlName="despacho"
+          disabled
+        />
+      </div>
+
+      <div class="col-lg-6 col-sm-12 mt-3">
+        <label class="text-gray" for="ponente">Ponente</label>
+        <input
+          type="text"
+          name="ponente"
+          required
+          formControlName="ponente"
+          disabled
+        />
+      </div>
+
+      <h5 class="m-2">Clasificacion del Proceso</h5>
+      <div class="col-lg-6 col-sm-12 mt-3">
+        <label class="text-gray" for="AccionJudicial"
+          >Tipo de Accion Judicial</label
+        >
+        <select
+          name="AccionJudicial"
+          id="AccionJudicial-select"
+          formControlName="tipoProceso"
+        >
+          <option
+            *ngFor="let tip of lstTipoProceso"
+            value="{{ tip.id }}"
+            disabled
+          >
+            {{ tip.nombre }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-lg-6 col-sm-12 mt-3">
+        <label class="text-gray" for="Cuantia">Cuantia</label>
+        <input
+          type="text"
+          name="Cuantia"
+          required
+          formControlName="cuantia"
+          disabled
+        />
+      </div>
+
+      <h5 class="m-2">Sujetos Procesales</h5>
+      <div class="col-lg-6 col-sm-12 mt-3">
+        <label class="text-gray" for="Demandante">Demandante</label>
+        <input
+          type="text"
+          name="Demandante"
+          required
+          formControlName="demandante"
+          disabled
+        />
+      </div>
+
+      <div class="col-lg-6 col-sm-12 mt-3">
+        <label class="text-gray" for="Demandado">Demandado</label>
+        <input
+          type="text"
+          name="Demandado"
+          required
+          formControlName="demandado"
+          disabled
+        />
+      </div>
+    </div>
+  </form>
+
+  <h1>ACTUACIONES DEL PROCESO</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">FECHA ACTUACION</th>
+        <th scope="col">ACTUACION</th>
+        <th scope="col">ANOTACION</th>
+        <th scope="col">FECHA/INICIA TERMINO</th>
+        <th scope="col">FECHA/FINALIZA TERMINO</th>
+        <th scope="col">F/REGISTRO</th>
+        <th scope="col" class="w-10">ARCHIVO</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ActProceso of ActProcesos">
+        <td>
+          {{ ActProceso.numeroProceso }}
+        </td>
+        <td>
+          {{ ActProceso.actuacion }}
+        </td>
+        <td>
+          {{ ActProceso.anotacion }}
+        </td>
+        <td>
+          {{ ActProceso.demandado }}
+        </td>
+        <td>
+          {{ ActProceso.nombre }}
+        </td>
+        <td class="d-flex">
+          <button class="button-list">
+            <img
+              class="img-list"
+              src="../../../../../assets/imgs/iconFile.png"
+              alt=""
+            />
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="7">
+          <div class="d-flex justify-content-end p-2">
+            <select
+              class="form-select"
+              style="width: auto"
+              [(ngModel)]="pageSize"
+              (ngModelChange)="refreshProcesos()"
+            >
+              <option [ngValue]="2">2 items for page</option>
+              <option [ngValue]="4">4 items for page</option>
+              <option [ngValue]="6">6 items for page</option>
+              <option [ngValue]="8">8 items for page</option>
+              <option [ngValue]="10">10 items for page</option>
+            </select>
+            <ngb-pagination
+              class="pagination"
+              [collectionSize]="collectionSize"
+              [(page)]="page"
+              [pageSize]="pageSize"
+              (pageChange)="refreshProcesos()"
+            >
+            </ngb-pagination>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

@@ -1,0 +1,139 @@
+<div class="container-form">
+  <h1>EDITAR TAREA</h1>
+  <div style="text-align: center">
+    <button class="btn" onclick="location.href='tablero-tarea';">
+      Tablero de Tareas
+    </button>
+  </div>
+  <form class="form" [formGroup]="form">
+    <div class="d-flex flex-column align-center">
+      <label class="text-gray">Tipo de Tarea</label>
+      <select name="tipoTarea" id="tipoTarea-select" formControlName="tipoTarea" (change)="toggle()">
+        <option value="0">--Seleccione un tipo de Tarea--</option>
+        <option *ngFor="let tipoTarea of lstTipoTarea" value="{{ tipoTarea.id }}">
+          {{ tipoTarea.nombre }}
+        </option>
+      </select>
+
+      <div id="radicado">
+        <label class="text-gray" for="radicado">Numero de Radicado</label>
+        <input type="text" name="radicado" formControlName="numRadicado" />
+      </div>
+
+      <label class="text-gray" for="name">Nombre de la Tarea</label>
+      <input type="text" name="name" formControlName="nombreTarea" />
+
+      <label class="text-gray" for="descripcion">Descripcion de la Tarea</label>
+      <textarea type="text" name="descripcion" cols="40" rows="5" formControlName="descripcion"></textarea>
+
+      <label class="text-gray" for="link">Link</label>
+      <input type="text" name="link" formControlName="link" />
+
+      <div class="d-flex justify-content-between row">
+        <div class="inputs col-6">
+          <label class="text-gray" for="feinicio">Selecciona Fecha y Hora de Inicio</label>
+          <input type="datetime-local" name="feinicio" formControlName="fechaInicio" />
+        </div>
+        <div class="inputs col-6">
+          <label class="text-gray" for="fefin">Selecciona Fecha y Hora de Entrega</label>
+          <input type="datetime-local" name="fefin" formControlName="fechaFin" />
+        </div>
+
+        <div class="inputs col-6">
+          <label class="text-gray" for="responsable">Responsable</label>
+          <select name="responsable" id="responsable-select" formControlName="Responsable">
+            <option value="0">-- Seleccione un Responsable --</option>
+            <option *ngFor="let responsable of lstResponsable" value="{{ responsable.id }}">
+              {{ responsable.nombre }}
+            </option>
+          </select>
+        </div>
+        <div class="inputs col-6">
+          <label class="text-gray" for="cliente">Cliente</label>
+          <select name="cliente" id="cliente-select" formControlName="cliente">
+            <option value="0">-- Seleccione un Cliente --</option>
+            <option *ngFor="let cliente of lstCliente" value="{{ cliente.id }}">
+              {{ cliente.nombre }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="d-flex m-1">
+        <label class="text-gray m-0" for="cliente">Otro Responsables</label>
+        <input class="checkbox-res" name="chec" type="checkbox" id="chec" (change)="showDiv()" />
+      </div>
+
+      <div class="justify-content-between row mb-2" id="ResCheck">
+        <div *ngFor="let responsable of lstResponsable" class="d-flex col-3 align-items-center">
+          <input class="checkbox" name="chec" type="checkbox" id="chec" value="{{ responsable.id }}" />
+          <label class="text-gray m-0" for="cliente">{{
+            responsable.nombre
+            }}</label>
+        </div>
+      </div>
+
+      <label class="text-gray">Estado de la Tarea</label>
+      <select name="estado" id="tipoTarea-select" formControlName="estado" (change)="toggle()">
+        <option value="0">--Seleccione un estado--</option>
+        <option *ngFor="let estado of lstEstado" value="{{ estado.id }}">
+          {{ estado.nombre }}
+        </option>
+      </select>
+
+      <label class="text-gray" for="clientes">Subir Archivo</label>
+      <div class="dropzone align-items-center fileover" appDnd (fileDropped)="onFileDropped($event)">
+        <input type="file" #fileDropRef id="fileDropRef" multiple (change)="fileBrowseHandler($event.target.files)" />
+        <h3>Drag and drop file Here to Upload</h3>
+        <label for="fileDropRef">Or Select Files to Upload</label>
+      </div>
+
+      <div class="files-list">
+        <div class="single-file" *ngFor="let file of files; let i = index">
+          <img src="assets/imgs/ic-file.svg" width="45px" alt="file" />
+          <div class="info">
+            <h4 class="name">
+              {{ file?.name }}
+            </h4>
+            <p class="size">
+              {{ formatBytes(file?.size) }}
+            </p>
+          </div>
+          <img src="assets/imgs/ic-delete-file.svg" class="delete" width="20px" alt="file" (click)="deleteFile(i)" />
+        </div>
+      </div>
+
+      <button (click)="clickEnviar()" class="btn btn-form">
+        Guardar Tarea
+      </button>
+
+      <h3>COMENTARIOS</h3>
+      <div class="comentarios justify-content-center">
+        <form class="form-comentarios d-flex justify-content-end flex-wrap" [formGroup]="form">
+          <textarea formControlName="comentario" name="" id="" rows="5"
+            placeholder="Unete a la conversacion"></textarea>
+          <button (click)="clickComentario()" class="btn btn-coment" type="button">
+            Comentar
+          </button>
+        </form>
+      </div>
+
+      <div *ngFor="let comentario of lstComentario" class="media d-flex flex-column">
+        <div class="user d-flex rounded mb-2">
+          <img class="w-8 h-8 mr-2 rounded-full" src="https://ui-avatars.com/api/?background=f19200&color=fff&name={{
+              comentario.usuario.nombre
+            }} {{ comentario.usuario.apellido }}" alt="" />
+          <div class="media-body">
+            <p class="nombre">
+              {{ comentario.usuario.nombre }} {{ comentario.usuario.apellido }}
+            </p>
+            <hr class="m-0" style="width: 97%;" />
+            <p class="comentario">
+              {{ comentario.texto }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

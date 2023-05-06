@@ -1,0 +1,144 @@
+.second_box,
+.content {
+    position: absolute;
+}
+
+.main_box {
+    filter: drop-shadow(-3em 0px 0px #CECFCF);
+    width: 100%;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.second_box {
+    width: 100%;
+    height: 86.6vh;
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 95% 100%);
+    background-color: #FE8910;
+    z-index: 0;
+    box-sizing: border-box;
+}
+
+.content {
+    animation: drop-in 1000ms;
+    z-index: 2;
+    width: 100%;
+    height: 86.6%;
+}
+
+.content img {
+    width: 25%;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #FE8910;
+}
+
+.w-60 {
+    width: 60%;
+}
+
+.pb-10 {
+    padding-bottom: 10%;
+}
+
+.btn-principal {
+    border-radius: 10px !important;
+    width: 50%;
+    height: max-content;
+    background-color: #FE8910;
+    padding: 1%;
+    color: #f7f7f7 !important;
+    font-weight: bold;
+    border-radius: 0;
+}
+
+.btn-principal:hover {
+    background-color: #868789;
+    color: #f7f7f7 !important;
+}
+
+.img_logo {
+    animation: grow-and-shrink 3000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.slide {
+    animation: slide 1s;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(100vh);
+        opacity: 0.25;
+    }
+
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes grow-and-shrink {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes drop-in {
+    from {
+        transform:
+            rotate(-30deg) translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform:
+            rotate(0deg) translateY(0%);
+        opacity: 1;
+    }
+}
+
+/*Responsive*/
+@media(max-width: 1302px){
+    .second_box {
+        height: 86.6vh;
+    }
+}
+
+@media(max-width: 1201px) {
+    .title {
+        font-size: 2rem;
+    }
+}
+
+@media(max-width: 767px) {
+    .title {
+        font-size: 1rem;
+    }
+    .main_box {
+        filter: drop-shadow(-1em 0px 0px #CECFCF);
+    }
+
+    .btn-principal {
+        width: max-content;
+    }
+    .second_box {
+        height: 90vh;
+    }
+    .pb-10 {
+        font-size: 1rem;
+    }
+    
+}

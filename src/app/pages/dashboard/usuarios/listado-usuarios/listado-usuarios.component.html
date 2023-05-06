@@ -1,0 +1,57 @@
+<div class="container-table">
+  <h1>LISTADO USUARIOS</h1>
+  <div style="text-align: center">
+    <button class="btn" onclick="location.href='registrar-usuario';">
+      Crear Usuario
+    </button>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">NOMBRE</th>
+        <th scope="col">CORREO ELECTRONICO</th>
+        <th scope="col">ROL</th>
+        <th scope="col" class="width-1">ACCIONES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuRol of users">
+        <td>
+          {{ usuRol.usuario.nombre }}
+        </td>
+        <td>{{ usuRol.usuario.email }}</td>
+        <td class="width-1">
+          <div class="rol-box">
+            {{ usuRol.rol.nombre }}
+          </div>
+        </td>
+        <td class="d-flex">
+          <button (click)="eliminar(usuRol.id)" class="button-list" *ngIf="superAdmin">
+            <img class="img-list" src="../../../../../assets/imgs/papelera.png" alt="" />
+          </button>
+          <button [routerLink]="['/editar-usuario', usuRol.usuario.id]" class="button-list">
+            <img class="img-list" src="../../../../../assets/imgs/lapiz.png" alt="" />
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4">
+          <div class="d-flex justify-content-end p-2">
+            <select class="form-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshUsers()">
+              <option [ngValue]="2">2 items for page</option>
+              <option [ngValue]="4">4 items for page</option>
+              <option [ngValue]="6">6 items for page</option>
+              <option [ngValue]="8">8 items for page</option>
+              <option [ngValue]="10">10 items for page</option>
+            </select>
+            <ngb-pagination class="pagination" [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+              (pageChange)="refreshUsers()">
+            </ngb-pagination>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

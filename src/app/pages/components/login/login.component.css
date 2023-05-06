@@ -1,0 +1,115 @@
+/*Login*/
+/* The popup form - hidden by default */
+.form-popup {
+    display: none;
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(102, 102, 102, 0.6);
+    top: 0;
+}
+
+/* Add styles to the form container */
+.form-container {
+    max-width: 40%;
+    padding: 50px;
+    background-color: white;
+    margin: 5% auto;
+}
+.form-container-hijo{
+    max-width: 70%;
+    margin: 0 auto;
+}
+.text-gray {
+    color: #868789;
+}
+
+.text-principal {
+    color: #FE8910;
+    text-align: center;
+    margin-bottom: 15%;
+}
+
+.Inputs{
+    margin-bottom: 10%;
+}
+
+.checkbox{
+    margin: 2%;
+}
+/* Full-width input fields */
+.form-container input[type=text],
+.form-container input[type=password] {
+    width: 100%;
+    margin: 5px 0 22px 0;
+    border: none;
+    border-bottom: solid #FE8910 1px;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+    background-color: #FE8910;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+    font-size: 30px;
+    display: block;
+    margin:  0 0 0 auto;
+    color: #868789;
+    border-radius: 100%;
+    cursor: pointer;
+    border: none;
+}
+.cancel:active{
+    border: none;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover,
+.open-button:hover {
+    opacity: 1;
+}
+
+.record-pass{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5%;
+}
+.check{
+    display: flex;
+    align-items: center;
+    
+}
+.check-label{
+    margin: 0;
+}
+
+.btn{
+    border-radius: 0;
+}
+
+.border-radius{
+    border-radius: 15px;
+}
+
+/*responsive*/
+@media(max-width: 1023px){
+    .form-container{
+        max-width: 80%;
+        padding: 8%;
+    }
+    .form-container-hijo{
+        max-width: 100%;
+        margin: 0;
+    }
+}

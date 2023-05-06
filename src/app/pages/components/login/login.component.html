@@ -1,0 +1,30 @@
+<div class="form-popup" id="myForm">
+  <form [formGroup]="form" class="form-container border-radius">
+    <div class="form-container-hijo">
+      <button type="button" class="cancel" (click)="closeForm()">
+        &times;
+      </button>
+      <h1 class="text-principal"><b>Iniciar Sesion</b></h1>
+      <div class="Inputs">
+        <label class="text-gray" for="email">Número de Identificaion</label>
+        <input type="text" name="email" required formControlName="usuario" />
+
+        <label class="text-gray" for="psw">Contraseña</label>
+        <input type="password" name="psw" required formControlName="clave" />
+      </div>
+
+      <!-- <div class="record-pass">
+        <div class="check">
+          <input class="checkbox" type="checkbox" name="record" id="" />
+          <label class="text-gray check-label" for="record">Recordar?</label>
+        </div>
+
+        <a class="text-gray" href="">Recuperar Contraseña</a>
+      </div> -->
+
+      <button type="submit" class="btn border-radius" (click)="onLoginClick()">
+        Ingresar
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,114 @@
+*{
+    font-family: "Arial Narrow", Arial, sans-serif;
+}
+
+h1{
+    text-align: center;
+}
+
+.align-center{
+    display: flex;
+    justify-content: center;
+}
+
+.text-gray {
+    color: #868789;
+}
+
+.container-form{
+    padding: 2rem 0;
+    width: 80%;
+    margin: auto;
+}
+
+.title-button{
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn{
+    background-color: #FE8910;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 0;
+    width: 50%;
+    margin: 0.6rem 0 1.5rem 0;
+    justify-content: center;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+}
+
+.btn:hover{
+    color: #f7f7f7;
+    background-color: #868789;
+}
+
+.btn-form{
+    width: 100%;
+    padding: 1rem;
+    
+}
+
+.form input, select,textarea{
+    color: #1a1a1a;
+    width: 100%;
+    background-color: rgba(102, 102, 102, 0.25);
+    border: none;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+}
+
+textarea{
+    resize: none;
+}
+
+.form select{
+    color: #868789;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.form .inputs{
+    width: 48%;
+}
+.h-coment{
+    height: 10rem;
+}
+
+.checkbox[type=checkbox]{
+    transform: scale(2);
+}
+
+@media(max-width:1023px) {
+    .container-form{
+        width: 90%;
+    }
+    .form{
+        width: 100%;
+    }
+}
+
+@media(max-width:767px) {
+    .container-form{
+        width: 90%;
+        
+    }
+    .title-button{
+        flex-direction: column;
+    }
+    .btn{
+        width: 100%;
+        margin: 3% auto;
+    }
+    .form{
+        width: 100%;
+    }
+    .contrato{
+        flex-direction: column;
+    }
+    .form .inputs{
+        width: 100%;
+    }
+}

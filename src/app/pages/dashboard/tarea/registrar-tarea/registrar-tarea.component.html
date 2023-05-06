@@ -1,0 +1,117 @@
+<div class="container-form">
+  <h1>CREAR TAREA</h1>
+  <div style="text-align: center">
+    <button class="btn" onclick="location.href='tablero-tarea';">
+      Tablero de Tareas
+    </button>
+  </div>
+  <form class="form" [formGroup]="form">
+    <div class="d-flex flex-column align-center">
+      <label class="text-gray">Tipo de Tarea</label>
+      <select name="tipoTarea" id="tipoTarea-select" formControlName="tipoTarea" (change)="toggle()">
+        <option value="0">--Seleccione un tipo de Tarea--</option>
+        <option *ngFor="let tipoTarea of lstTipoTarea" value="{{ tipoTarea.id }}">
+          {{ tipoTarea.nombre }}
+        </option>
+      </select>
+
+      <div id="Radicado">
+        <label class="text-gray" for="Radicado">Numero Proceso</label>
+        <ng-autocomplete #countryList formControlName="numRadicado" [data]="procesos" min-length="1"
+          [searchKeyword]="countrykeyword" (selected)="selectEventCountry($event); onLocationSubmit()"
+          (inputCleared)="onCountryCleared($event, false)" [itemTemplate]="countryListTemplate"
+          [notFoundTemplate]="notFoundTemplate" placeholder="Digite el numero de proceso"
+          (keyup)="filtrarNumeroRadicado($event)">
+        </ng-autocomplete>
+
+        <ng-template #countryListTemplate let-item>
+          <a [innerHTML]="item.numeroProceso"></a>
+        </ng-template>
+
+        <ng-template #notFoundTemplate let-notFound>
+          <div [innerHTML]="notFound"></div>
+        </ng-template>
+      </div>
+
+      <label class="text-gray" for="name">Nombre de la Tarea</label>
+      <input type="text" name="name" formControlName="nombreTarea" />
+
+      <label class="text-gray" for="descripcion">Descripcion de la Tarea</label>
+      <textarea type="text" name="descripcion" cols="40" rows="5" formControlName="descripcion"></textarea>
+
+      <label class="text-gray" for="link">Link</label>
+      <input type="text" name="link" formControlName="link" />
+
+      <div class="d-flex justify-content-between row">
+        <div class="inputs col-6">
+          <label class="text-gray" for="feinicio">Selecciona Fecha y Hora de Inicio</label>
+          <input type="datetime-local" name="feinicio" formControlName="fechaInicio" />
+        </div>
+        <div class="inputs col-6">
+          <label class="text-gray" for="fefin">Selecciona Fecha y Hora de Entrega</label>
+          <input type="datetime-local" name="fefin" formControlName="fechaFin" />
+        </div>
+
+        <div class="inputs col-6">
+          <label class="text-gray" for="responsable">Responsable</label>
+          <select name="responsable" id="responsable-select" formControlName="Responsable">
+            <option value="0">-- Seleccione un Responsable --</option>
+            <option *ngFor="let responsable of lstResponsable" value="{{ responsable.id }}">
+              {{ responsable.nombre }}
+            </option>
+          </select>
+        </div>
+        <div class="inputs col-6">
+          <label class="text-gray" for="cliente">Cliente</label>
+          <select name="cliente" id="cliente-select" formControlName="cliente">
+            <option value="0">-- Seleccione un Cliente --</option>
+            <option *ngFor="let cliente of lstCliente" value="{{ cliente.id }}">
+              {{ cliente.nombre }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="d-flex m-1">
+        <label class="text-gray m-0" for="cliente">Otro Responsables</label>
+        <input class="checkbox-res" name="chec" type="checkbox" id="chec" (change)="showDiv()" />
+      </div>
+
+      <div class="justify-content-between row mb-2" id="ResCheck">
+        <div *ngFor="let responsable of lstResponsable" class="d-flex col-3 align-items-center">
+          <input class="checkbox" name="chec" type="checkbox" id="chec" value="{{ responsable.id }}"
+            (change)="onCategoriaPressed(responsable,$event.target.checked)" />
+          <label class="text-gray m-0" for="cliente">{{
+            responsable.nombre
+            }}</label>
+        </div>
+      </div>
+
+      <label class="text-gray" for="clientes">Subir Archivo</label>
+      <div class="dropzone align-items-center fileover" appDnd (fileDropped)="onFileDropped($event)">
+        <input type="file" #fileDropRef id="fileDropRef" multiple (change)="fileBrowseHandler($event.target.files)" />
+        <h3>Drag and drop file Here to Upload</h3>
+        <label for="fileDropRef">Or Select Files to Upload</label>
+      </div>
+
+      <div class="files-list">
+        <div class="single-file" *ngFor="let file of files; let i = index">
+          <img src="assets/imgs/ic-file.svg" width="45px" alt="file" />
+          <div class="info">
+            <h4 class="name">
+              {{ file?.name }}
+            </h4>
+            <p class="size">
+              {{ formatBytes(file?.size) }}
+            </p>
+          </div>
+          <img src="assets/imgs/ic-delete-file.svg" class="delete" width="20px" alt="file" (click)="deleteFile(i)" />
+        </div>
+      </div>
+
+      <button class="btn btn-form" (click)="clickEnviar()" [disabled]="!form.valid">
+        Crear Tarea
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,177 @@
+* {
+    font-family: "Arial Narrow", Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.title-button{
+    margin: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.buttonTarea{
+    width: 10%;
+}
+
+.buttonTarea img{
+    filter: invert(57%) sepia(43%) saturate(2157%) hue-rotate(5deg) brightness(99%) contrast(102%);
+    width: 40%;
+}
+
+.btn {
+    background-color: #FE8910;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 0;
+    width: 50%;
+    margin: 0.6rem 0 1.5rem 0;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.btn-delete {
+    background-color: #868789;
+    color: white;
+    padding: 5px;
+    border: none;
+    width: 50%;
+    margin: 0.6rem 0 1.5rem 0;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.btn-delete:hover {
+    color: #f7f7f7;
+    background-color: #FE8910;
+}
+
+.btn:hover {
+    color: #f7f7f7;
+    background-color: #868789;
+}
+
+.container-table {
+    padding: 0.5rem 0;
+    width: 95%;
+    margin: auto;
+}
+
+/*table*/
+table {
+    width: 100%;
+    text-align: center;
+
+}
+
+.table th, .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border: none;
+}
+
+.header-box {
+    /* position: relative;
+    top: -20px; */
+    background-color: #868789;
+    color: #f7f7f7;
+    font-weight: normal;
+    font-size: larger;
+    padding: 10px 0;
+    width: 100%;
+    border-radius: 15px;
+
+}
+
+th p {
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/*tarea*/
+
+.tarea-container {
+    width: 100%;
+    background-color: #f7f7f7;
+    position: relative;
+    border-radius: 15px;
+    border: 2px solid #5e5e5e;
+    border-top: none;
+}
+
+.tarea-container .closeButton2 {
+    background:url(../../../../../assets/imgs/cancel.png) no-repeat;
+    width:26px;height:26px;
+    top:-9px;
+    right:-9px;
+    position:absolute;
+    cursor:pointer;
+}
+
+.tarea-header {
+    background-color: #FE8910;
+    color: #f7f7f7;
+    border-radius: 15px;
+    margin: 0;
+}
+
+.tarea-body p{
+    margin: 0;
+}
+
+.part-text {
+    text-align: center;
+    width: 50%;
+    background-color: #FE8910;
+    color: #f7f7f7;
+}
+
+.w-18 {
+    width: 18%;
+}
+
+.rounded-circle{
+    border: 1.5px solid #1a1a1a;
+}
+
+.tr-table {
+    width: 15%;
+}
+
+.button-list, .buttonTarea {
+    border: none;
+    background: none;
+}
+.button-list{
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.img-list {
+    filter: invert(100%) sepia(90%) saturate(49%) hue-rotate(163deg) brightness(113%) contrast(94%);
+    width: 1.6rem;
+}
+.img-estado{
+    width: 1.6rem;
+}
+
+@media screen and (max-width: 1023px) {
+    table {
+      display: block;
+      overflow-x: auto;
+    }
+    .tr-table {
+        width: 262px;
+    }
+    .tarea-container {
+        width: 262px;
+    }
+    .buttonTarea img{
+        filter: invert(57%) sepia(43%) saturate(2157%) hue-rotate(5deg) brightness(99%) contrast(102%);
+        width: 2rem;
+    }
+}

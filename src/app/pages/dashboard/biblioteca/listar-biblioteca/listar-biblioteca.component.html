@@ -1,0 +1,107 @@
+<div class="container-table">
+  <div class="d-flex justify-content-between title-button">
+    <h1>LISTADO DOCUMENTOS</h1>
+    <button class="btn" onclick="location.href='registrar-biblioteca';">
+      Subir Documento
+    </button>
+  </div>
+
+  <div class="mb-3 row d-flex justify-content-center">
+    <div class="col-sm-auto search align-self-end">
+      <input
+        id="table-complete-search"
+        type="text"
+        class="form-control"
+        name="searchTerm"
+        (keyup)="filtrar($event)"
+        placeholder="Consultar Nombre del Cliente"
+      />
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">NOMBRE CLIENTE</th>
+        <th scope="col">NOMBRE DEL ARCHIVO</th>
+        <th scope="col">ARCHIVO</th>
+        <th scope="col" class="width-1">ACCIONES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bibliotecaDocumento of bibliotecaDocumentos">
+        <td class="p-3">
+          {{ bibliotecaDocumento.cliente.nombre }}
+        </td>
+        <td class="p-3">
+          {{ bibliotecaDocumento.nombreArchivo }}
+        </td>
+        <td class="width-1">
+          <a>
+            <button
+              class="button-list p-2"
+              (click)="
+                clickEvent(bibliotecaDocumento.id, bibliotecaDocumento.archivo)
+              "
+            >
+              <img
+                class="img-list"
+                src="../../../../../assets/imgs/iconFile.png"
+                alt=""
+              />
+            </button>
+          </a>
+        </td>
+        <td class="d-flex p-3">
+          <button *ngIf="superAdmin"
+            (click)="eliminar(bibliotecaDocumento.id)"
+            class="button-list"
+          >
+            <img
+              class="img-list"
+              src="../../../../../assets/imgs/papelera.png"
+              alt=""
+            />
+          </button>
+          <button
+            [routerLink]="['/editar-bibliotecas', bibliotecaDocumento.id]"
+            class="button-list"
+          >
+            <img
+              class="img-list"
+              src="../../../../../assets/imgs/lapiz.png"
+              alt=""
+            />
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4">
+          <div class="d-flex justify-content-end p-2">
+            <select
+              class="form-select"
+              style="width: auto"
+              [(ngModel)]="pageSize"
+              (ngModelChange)="refreshDocuments()"
+            >
+              <option [ngValue]="2">2 items for page</option>
+              <option [ngValue]="4">4 items for page</option>
+              <option [ngValue]="6">6 items for page</option>
+              <option [ngValue]="8">8 items for page</option>
+              <option [ngValue]="10">10 items for page</option>
+            </select>
+            <ngb-pagination
+              class="pagination"
+              [collectionSize]="collectionSize"
+              [(page)]="page"
+              [pageSize]="pageSize"
+              (pageChange)="refreshDocuments()"
+            >
+            </ngb-pagination>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

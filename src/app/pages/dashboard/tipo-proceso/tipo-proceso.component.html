@@ -1,0 +1,87 @@
+<div class="container-table">
+  <h1>REGISTRO TIPO DE PROCESO</h1>
+
+  <div class="align-center">
+    <form class="form" action="" [formGroup]="form">
+      <label class="text-graisn't a known property of 'form'.y" for="name"
+        >Nombre Tipo Proceso</label
+      ><br />
+      <input
+        class="border-radius"
+        type="text"
+        name="name"
+        formControlName="nombre"
+        required
+      /><br />
+
+      <button
+        type="submit"
+        class="btn btn-form border-radius"
+        (click)="clickEnviar()"
+      >
+        <div>{{ textoBoton }}</div>
+      </button>
+    </form>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">NOMBRE</th>
+        <th scope="col" class="width-1">ACCIONES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let typelegalaction of typelegalactions">
+        <td>
+          {{ typelegalaction.nombre }}
+        </td>
+        <td class="d-flex">
+          <button (click)="eliminar(typelegalaction.id)" class="button-list" *ngIf="superAdmin">
+            <img
+              class="img-list"
+              src="../../../../../assets/imgs/papelera.png"
+              alt=""
+            />
+          </button>
+          <button (click)="modificar(typelegalaction)" class="button-list">
+            <img
+              class="img-list"
+              src="../../../../../assets/imgs/lapiz.png"
+              alt=""
+            />
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <div class="d-flex justify-content-end p-2">
+            <select
+              class="form-select"
+              style="width: auto"
+              [(ngModel)]="pageSize"
+              (ngModelChange)="refreshLegalActions()"
+            >
+              <option [ngValue]="2">2 items por pagina</option>
+              <option [ngValue]="4">4 items por pagina</option>
+              <option [ngValue]="6">6 items por pagina</option>
+              <option [ngValue]="8">8 items por pagina</option>
+              <option [ngValue]="10">10 items por pagina</option>
+            </select>
+            <ngb-pagination
+              style="color: #FE8910"
+              class="pagination"
+              [collectionSize]="collectionSize"
+              [(page)]="page"
+              [pageSize]="pageSize"
+              (pageChange)="refreshLegalActions()"
+            >
+            </ngb-pagination>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

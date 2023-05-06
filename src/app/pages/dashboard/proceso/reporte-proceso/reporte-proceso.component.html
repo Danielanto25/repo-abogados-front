@@ -1,0 +1,90 @@
+<div class="container-table">
+  <h1 class="justify-content-between">REPORTE POR PROCESO</h1>
+
+  <div class="mb-3 row d-flex justify-content-center">
+    <div class="col-sm-auto search">
+      <label
+        for="search-fecha-inicio"
+        class="col-xs-3 col-sm-auto col-form-label"
+        >Seleccionar Fecha Inicio:</label
+      >
+      <input
+        id="search-fecha-inicio"
+        type="date"
+        class="form-control"
+        name="searchFechaInicio"
+      />
+    </div>
+    <div class="col-sm-auto search">
+      <label for="search-fecha-fin" class="col-xs-3 col-sm-auto col-form-label"
+        >Seleccionar Fecha Fin:</label
+      >
+      <input
+        id="search-fecha-fin"
+        type="date"
+        class="form-control"
+        name="searchFechaFin"
+      />
+    </div>
+    <div class="col-sm-auto search align-self-end">
+      <input
+        id="table-complete-search"
+        type="text"
+        class="form-control"
+        name="searchTerm"
+        placeholder="Consultar Numero Proceso"
+      />
+    </div>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">PROCESO</th>
+        <th scope="col">FECHA ACTUACION</th>
+        <th scope="col">ACTUACION</th>
+        <th scope="col">ANOTACION</th>
+        <th scope="col">F/INICIO TERMINO</th>
+        <th scope="col">F/FIN TERMINO</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let Proceso of Procesos">
+        <td>{{ Proceso.proceso.numeroProceso }}</td>
+        <td>{{ Proceso.fechaCreacion }}</td>
+        <td>{{ Proceso.actuacion }}</td>
+        <td>{{ Proceso.anotacion }}</td>
+        <td>{{ Proceso.fechaHoraInicio}}</td>
+        <td>{{ Proceso.fechaHoraFin }}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="8">
+          <div class="d-flex justify-content-end p-2">
+            <select
+              class="form-select"
+              style="width: auto"
+              [(ngModel)]="pageSize"
+              (ngModelChange)="refreshProcesos()"
+            >
+              <option [ngValue]="2">2 items for page</option>
+              <option [ngValue]="4">4 items for page</option>
+              <option [ngValue]="6">6 items for page</option>
+              <option [ngValue]="8">8 items for page</option>
+              <option [ngValue]="10">10 items for page</option>
+            </select>
+            <ngb-pagination
+              class="pagination"
+              [collectionSize]="collectionSize"
+              [(page)]="page"
+              [pageSize]="pageSize"
+              (pageChange)="refreshProcesos()"
+            >
+            </ngb-pagination>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

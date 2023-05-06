@@ -1,0 +1,97 @@
+<nav class="navbar navbar-expand-xl navbar-light bg-light">
+  <div class="nav-bar">
+    <img src="../../../../assets/imgs/logo.jpeg" alt="" width="4%" />
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto pad-left">
+        <!--Admin-->
+        <li class="nav-item dropdown" *ngIf="admin2 || superAdmin">
+          <a class="nav-link dropdown-toggle nav-link-space-admin" href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Usuarios
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="registrar-usuario">Registrar Usuarios</a>
+            <a class="dropdown-item" href="listado-usuario">Listado de Usuarios</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown" *ngIf="admin2 || superAdmin || rolUsuario">
+          <a class="nav-link dropdown-toggle nav-link-space-admin" href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Biblioteca
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="registrar-biblioteca">Registrar Archivo</a>
+            <a class="dropdown-item" href="listado-biblioteca">Listado de Documentos</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown" *ngIf="admin2 || superAdmin || rolUsuario">
+          <a class="nav-link dropdown-toggle nav-link-space-admin" href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Clientes
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="registrar-cliente">Registrar cliente</a>
+            <a class="dropdown-item" href="listado-cliente">Listado de clientes</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown" *ngIf="admin2 || superAdmin || rolUsuario">
+          <a class="nav-link dropdown-toggle nav-link-space-admin" href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Tareas
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="registrar-tarea">Agendar Tarea</a>
+            <a class="dropdown-item" href="tablero-tarea">Tablero de tareas</a>
+            <a class="dropdown-item" href="tipo-tarea">Registrar Tipo de tarea</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown" *ngIf="admin2 || superAdmin || rolUsuario">
+          <a class="nav-link dropdown-toggle nav-link-space-admin" href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Procesos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="registrar-proceso">Crear proceso</a>
+            <a class="dropdown-item" href="registrar-actuacion">Crear actuacion</a>
+            <a class="dropdown-item" href="listado-proceso">Listado de procesos</a>
+            <a class="dropdown-item" href="tipo-proceso">Registrar Tipo de procesos</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown" *ngIf="admin2 || superAdmin || rolUsuario">
+          <a class="nav-link dropdown-toggle nav-link-space-admin" href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Reportes
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="reporte-tarea-terminada">Tareas Terminadas</a>
+            <a class="dropdown-item" href="reporte-tarea-activa">Tareas Activas</a>
+            <a class="dropdown-item" href="reporte-proceso">Procesos</a>
+          </div>
+        </li>
+        <!--Admin-->
+      </ul>
+      <form class="form-inline my-2 my-lg-0 d-flex">
+        <i class="fa fa-user-circle-o" aria-hidden="true" (click)="openForm()" *ngIf="sesion"></i>
+        <div class="sesion-ui col-sm-12">
+          <p *ngIf="!sesion">{{ usuario.nombre }} {{ usuario.apellido }}</p>
+          <div class="sesion-rol d-flex">
+            <a *ngIf="!sesion"><img (click)="closeS()" src="../../../../assets/imgs/buton.png"
+                class="button-sesion" /></a>
+            <p class="sesionrol-dato" *ngIf="!sesion">{{ rol }}</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!--Login-->
