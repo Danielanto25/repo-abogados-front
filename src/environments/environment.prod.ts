@@ -1,8 +1,8 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://192.168.1.28:8080',
+  apiUrl: 'https://repo-back-abogados-production.up.railway.app',
   tokenName: 'token',
-  host: 'http://192.168.1.28:8080',
+  host: 'https://repo-back-abogados-production.up.railway.app',
   tokenClientId: 'clienteid',
   tokenClientSecret: 'secret123',
   id_estado_tarea: 1
