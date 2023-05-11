@@ -8,7 +8,7 @@ import { Proceso } from 'src/app/models/proceso';
 import { TipoProceso } from 'src/app/models/tipo-proceso';
 import { EstadoService } from 'src/app/services/estado.service';
 import { ProcesoService } from 'src/app/services/proceso.service';
-import { TipoProcesoService } from 'src/app/services/tipo-proceso';
+import { TipoProcesoService } from 'src/app/services/tipo-proceso.service';
 import Swal from 'sweetalert2';
 import { ClientesService } from 'src/app/services/clientes.service';
 import { EstadoProceso } from 'src/app/models/estadoProceso';

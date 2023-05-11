@@ -10,7 +10,7 @@ import { TipoProceso } from 'src/app/models/tipo-proceso';
 import { ActuacionProcesoService } from 'src/app/services/actuacion-proceso.service';
 import { EstadoService } from 'src/app/services/estado.service';
 import { ProcesoService } from 'src/app/services/proceso.service';
-import { TipoProcesoService } from 'src/app/services/tipo-proceso';
+import { TipoProcesoService } from 'src/app/services/tipo-proceso.service';
 
 
 @Component({

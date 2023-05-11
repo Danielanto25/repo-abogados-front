@@ -91,46 +91,71 @@
       </div>
 
       <h5 class="m-2">Sujetos Procesales</h5>
-      <div class="col-lg-6 col-sm-12 mt-3">
-        <label class="text-gray" for="Demandante">Demandante</label>
-        <input
-          type="text"
-          name="Demandante"
-          required
-          formControlName="demandante"
-        />
+      <button (click)="agregarDemandante()">agregar Demandante</button>
+      <div formArrayName="demandantes">
+        <div
+          *ngFor="
+            let demandante of obtenerDemandantesEnElArreglo().controls;
+            let i = index
+          "
+        >
+          <div [formGroupName]="i">
+            <button (click)="removerDemandante(i)">eliminar</button>
+            <div class="col-lg-6 col-sm-12 mt-3">
+              <label class="text-gray" for="Demandante">Demandante</label>
+              <input
+                type="text"
+                name="Demandante"
+                required
+                formControlName="demandante"
+              />
+            </div>
+
+            <div class="col-lg-6 col-sm-12 mt-3">
+              <label class="text-gray" for="Cuantia">Cedula o NIT</label>
+              <input
+                type="text"
+                name="Cuantia"
+                required
+                formControlName="documento"
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="col-lg-6 col-sm-12 mt-3">
-        <label class="text-gray" for="Cuantia">Cedula o NIT</label>
-        <input
-          type="text"
-          name="Cuantia"
-          required
-          formControlName="docDemandante"
-        />
-      </div>
+      <button (click)="agregarDemandado()">agregar Demandado</button>
+      <div formArrayName="demandados">
+        <div
+          *ngFor="
+            let demandado of obtenerDemandadosEnElArreglo().controls;
+            let i = index
+          "
+        >
+          <div [formGroupName]="i">
+            <button (click)="removerDemandado(i)">eliminar</button>
+            <div class="col-lg-6 col-sm-12 mt-3">
+              <label class="text-gray" for="Demandado">Demandado</label>
+              <input
+                type="text"
+                name="Demandante"
+                required
+                formControlName="demandado"
+              />
+            </div>
 
-      <div class="col-lg-6 col-sm-12 mt-3">
-        <label class="text-gray" for="Demandado">Demandado</label>
-        <input
-          type="text"
-          name="Demandado"
-          required
-          formControlName="demandado"
-        />
+            <div class="col-lg-6 col-sm-12 mt-3">
+              <label class="text-gray" for="Cuantia">Cedula o NIT</label>
+              <input
+                type="text"
+                name="Cuantia"
+                required
+                formControlName="documento"
+              />
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div class="col-lg-6 col-sm-12 mt-3">
-        <label class="text-gray" for="Cuantia">Cedula o NIT</label>
-        <input
-          type="text"
-          name="Cuantia"
-          required
-          formControlName="docDemandado"
-        />
-      </div>
-
       <button type="submit" class="btn btn-form" (click)="clickEnviar()">
         Guardar Registro
       </button>

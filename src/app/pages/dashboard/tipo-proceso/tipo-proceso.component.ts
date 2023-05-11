@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, } from '@angular/core';
-import { TipoProcesoService } from 'src/app/services/tipo-proceso';
+import { TipoProcesoService } from 'src/app/services/tipo-proceso.service';
 import { TipoProceso } from 'src/app/models/tipo-proceso';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';

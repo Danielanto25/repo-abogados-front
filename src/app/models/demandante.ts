@@ -5,4 +5,12 @@ export class Demandante{
   demandante:string;
   docDemandante: string;
   proceso: Proceso;
+
+  constructorListaSimpleInsercion(demandante?:string,docDemandante?:string):Demandante{
+    const demandateObj=new Demandante();
+    demandateObj.demandante=demandante;
+    demandateObj.docDemandante=docDemandante;
+    return demandateObj;
+  } 
+
 }
